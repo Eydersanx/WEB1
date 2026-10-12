@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade CSS Básico - CSS1</title>
+    <!-- Vinculação do CSS externo conforme solicitado no roteiro -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Demonstração de estilo interno (comparação de escopos) -->
+    <style>
+        .exemplo-interno {
+            color: #d97706;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="cabecalho">
+        <h1>Introdução ao CSS Básico</h1>
+        <p>Prática de estilização, espaçamentos, tipografia e seletores.</p>
+    </header>
+
+    <main class="container">
+        <!-- 1. Comparação de estilos inline, interno e externo -->
+        <section class="cartao">
+            <h2>Formas de Aplicação de CSS</h2>
+            <p>Este texto é estilizado via <strong>CSS Externo</strong>.</p>
+            <p class="exemplo-interno">Este texto utiliza estilização por bloco <strong>CSS Interno</strong>.</p>
+            <!-- Demonstração de estilo inline -->
+            <p style="color: #ef4444; font-style: italic;">Este texto utiliza estilização direta <strong>CSS Inline</strong>.</p>
+        </section>
+
+        <!-- 2. Box Model (Margin, Padding, Border) e Unidades (px, rem, %) -->
+        <section class="cartao">
+            <h2>Box Model e Unidades de Medida</h2>
+            <div class="caixa-destaque">
+                <p>Caixa com borda, padding interno em rem e margens bem definidas.</p>
+            </div>
+        </section>
+
+        <!-- 3. Listas e Links Estilizados -->
+        <section class="cartao">
+            <h2>Listas e Links</h2>
+            <ul class="lista-estilizada">
+                <li>Propriedades de Background e Cores</li>
+                <li>Fontes, Alinhamento e Espaçamento de Texto</li>
+                <li>Trabalho com Display e Visibilidade</li>
+            </ul>
+            <p>
+                Visite o site institucional: 
+                <a href="https://portal.uneb.br/" target="_blank" class="link-custom">Portal UNEB</a>
+            </p>
+        </section>
+
+        <!-- 4. Tabela Estilizada -->
+        <section class="cartao">
+            <h2>Tabela com Estilização</h2>
+            <table class="tabela-css">
+                <thead>
+                    <tr>
+                        <th>Unidade</th>
+                        <th>Tipo</th>
+                        <th>Uso Comum</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>px</td>
+                        <td>Absoluta</td>
+                        <td>Bordas e detalhes finos</td>
+                    </tr>
+                    <tr>
+                        <td>rem / em</td>
+                        <td>Relativa</td>
+                        <td>Tipografia e espaçamentos responsivos</td>
+                    </tr>
+                    <tr>
+                        <td>% / vh / vw</td>
+                        <td>Relativa</td>
+                        <td>Largura e layouts fluidos</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+</body>
+</html>
