@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineTech Interativo - Catálogo Dinâmico</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+            padding-bottom: 3rem;
+        }
+
+        /* Header */
+        .hero {
+            background-color: #1e293b;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            border-bottom: 3px solid #38bdf8;
+            transition: background-color 0.3s ease;
+        }
+
+        .logo {
+            font-size: 2.3rem;
+            color: rgb(56, 189, 248);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            margin-bottom: 0.4rem;
+            transition: color 0.3s ease;
+        }
+
+        .subtitulo {
+            font-size: 1rem;
+            color: #94a3b8;
+            font-style: italic;
+            font-weight: 300;
+            margin-bottom: 1.2rem;
+        }
+
+        .menu-nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .menu-nav a:hover {
+            color: #38bdf8;
+            text-decoration: underline;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 2rem auto;
+        }
+
+        .secao-bloco {
+            margin-bottom: 2.5rem;
+        }
+
+        .titulo-secao {
+            font-size: 1.5rem;
+            color: #f1f5f9;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        /* Card Destaque */
+        .card-destaque {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .poster-destaque {
+            width: 260px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .destaque-info {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .destaque-info h3 {
+            font-size: 1.7rem;
+            color: #38bdf8;
+            margin-bottom: 0.6rem;
+        }
+
+        .destaque-info .sinopse {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+
+        .lista-generos {
+            list-style-type: circle;
+            margin-left: 1.5rem;
+            color: #94a3b8;
+        }
+
+        /* Painel de Controles */
+        .painel-controles {
+            background-color: #1e293b;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #334155;
+        }
+
+        .controles-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            align-items: flex-end;
+        }
+
+        .controle-item label {
+            display: block;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 0.4rem;
+        }
+
+        .input-estilizado, .select-estilizado {
+            padding: 0.6rem 0.9rem;
+            background-color: #0b1120;
+            border: 1px solid #475569;
+            border-radius: 6px;
+            color: #f8fafc;
+            font-size: 0.95rem;
+            outline: none;
+            min-width: 230px;
+        }
+
+        .input-estilizado:focus, .select-estilizado:focus {
+            border-color: #38bdf8;
+        }
+
+        .btn-acao {
+            padding: 0.65rem 1.2rem;
+            background-color: #0284c7;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-acao:hover {
+            background-color: #0369a1;
+        }
+
+        .info-contador {
+            margin-top: 1rem;
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            background-color: #38bdf8;
+            color: #0f172a;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        /* Grade do Catálogo Dinâmico */
+        .grade-filmes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+        }
+
+        .card-filme {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 1rem;
+            flex: 1 1 calc(25% - 1.2rem);
+            min-width: 220px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .poster-grade {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 0.7rem;
+        }
+
+        .card-filme h4 {
+            font-size: 1.1rem;
+            color: #f8fafc;
+            margin-bottom: 0.3rem;
+        }
+
+        .card-filme .ano {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .card-filme .nota {
+            color: #38bdf8;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .selo-recomendado {
+            display: inline-block;
+            margin: 0.4rem auto;
+            background-color: rgba(250, 204, 21, 0.15);
+            color: #facc15;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .btn-favoritar {
+            margin-top: 0.7rem;
+            padding: 0.5rem;
+            background-color: #0f766e;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .btn-favoritar:hover {
+            background-color: #115e59;
+        }
+
+        /* Favoritos */
+        .bloco-favoritos {
+            background-color: #1e293b;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #334155;
+        }
+
+        .lista-favoritos {
+            list-style-type: square;
+            margin: 0.8rem 0 1.2rem 1.8rem;
+            color: #38bdf8;
+        }
+
+        .fav-vazio {
+            list-style-type: none;
+            margin-left: -1.8rem;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        .btn-limpar {
+            padding: 0.5rem 1rem;
+            background-color: #b91c1c;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-limpar:hover {
+            background-color: #991b1b;
+        }
+
+        /* Sobre */
+        .conteudo-sobre {
+            background-color: #1e293b;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #334155;
+        }
+
+        .img-flutuante {
+            float: right;
+            width: 140px;
+            margin-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+        }
+
+        .links-redes {
+            margin-top: 1.2rem;
+            clear: both;
+        }
+
+        .link-social {
+            display: inline-block;
+            color: #38bdf8;
+            text-decoration: none;
+            margin-left: 0.6rem;
+            font-weight: bold;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .link-social:hover {
+            background-color: #38bdf8;
+            color: #0f172a;
+        }
+
+        .rodape {
+            text-align: center;
+            padding: 2rem;
+            background-color: #020617;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- A. Cabeçalho com Mouseenter / Mouseleave -->
+    <header class="hero" id="topo-hero">
+        <h1 class="logo" id="logo-catalogo">CineTech Filmes</h1>
+        <h2 class="subtitulo">A melhor curadoria de ficção científica, tecnologia e cinema clássico</h2>
+        <nav class="menu-nav">
+            <a href="#destaque">Destaque</a>
+            <a href="#catalogo-secao">Catálogo</a>
+            <a href="#favoritos-area">Favoritos</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- B. Destaque da Semana -->
+        <section id="destaque" class="secao-bloco">
+            <h2 class="titulo-secao">Destaque da Semana</h2>
+            <div class="card-destaque">
+                <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500" alt="Pôster Interestelar" class="poster-destaque">
+                <div class="destaque-info">
+                    <h3>Interestelar (2014)</h3>
+                    <p class="sinopse">
+                        Um grupo de exploradores assume a missão mais importante da humanidade: viajar para além da nossa galáxia para descobrir o futuro entre as estrelas.
+                    </p>
+                    <h4>Gêneros:</h4>
+                    <ul class="lista-generos">
+                        <li>Ficção Científica</li>
+                        <li>Aventura</li>
+                        <li>Drama</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Controles: Busca, Filtro e Ordem -->
+        <section class="secao-bloco painel-controles">
+            <h2 class="titulo-secao">Controles do Catálogo</h2>
+            <div class="controles-grid">
+                <div class="controle-item">
+                    <label for="busca">Buscar Filme:</label>
+                    <input type="text" id="busca" placeholder="Digite o título do filme..." class="input-estilizado">
+                </div>
+
+                <div class="controle-item">
+                    <label for="filtro-genero">Filtrar por Gênero:</label>
+                    <select id="filtro-genero" class="select-estilizado">
+                        <option value="Todos">Todos</option>
+                        <option value="Ficção">Ficção</option>
+                        <option value="Ação">Ação</option>
+                        <option value="Cyberpunk">Cyberpunk</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Animação">Animação</option>
+                    </select>
+                </div>
+
+                <div class="controle-item">
+                    <button id="btn-inverter" class="btn-acao">Inverter Ordem</button>
+                </div>
+            </div>
+
+            <p class="info-contador">Filmes exibidos: <span id="contador" class="badge">0</span></p>
+        </section>
+
+        <!-- C. Catálogo Dinâmico gerado pelo script.js -->
+        <section id="catalogo-secao" class="secao-bloco">
+            <h2 class="titulo-secao">Catálogo de Filmes</h2>
+            <div id="catalogo" class="grade-filmes"></div>
+        </section>
+
+        <!-- G. Meus Favoritos -->
+        <section id="favoritos-area" class="secao-bloco bloco-favoritos">
+            <h2 class="titulo-secao">Meus Favoritos (<span id="contador-favoritos">0</span>)</h2>
+            <ul id="lista-favoritos" class="lista-favoritos">
+                <li class="fav-vazio">Nenhum filme favoritado até o momento.</li>
+            </ul>
+            <button id="btn-limpar-favoritos" class="btn-limpar">Limpar Favoritos</button>
+        </section>
+
+        <!-- Sobre / Contato -->
+        <section id="sobre" class="secao-bloco">
+            <h2 class="titulo-secao">Sobre o CineTech</h2>
+            <div class="conteudo-sobre">
+                <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=180" alt="Projetor" class="img-flutuante">
+                <p>
+                    Plataforma interativa desenvolvida com manipulação dinâmica de DOM em JavaScript para o curso de Engenharia de Software da UNEB.
+                </p>
+                <div class="links-redes">
+                    <span>Links:</span>
+                    <a href="https://github.com/Eydersanx" target="_blank" class="link-social">GitHub</a>
+                    <a href="https://portal.uneb.br/" target="_blank" class="link-social">Portal UNEB</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+        <p>&copy; 2026 CineTech - Projeto Prático JS1 - UNEB Campus II</p>
+    </footer>
+
+    <!-- Vínculo do JavaScript externo -->
+    <script src="script.js"></script>
+</body>
+</html>

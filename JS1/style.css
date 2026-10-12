@@ -1,0 +1,111 @@
+/* Estilos adicionais para os controles de JS */
+.painel-controles {
+    background-color: #1e293b;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    margin-bottom: 2rem;
+}
+
+.controles-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-end;
+}
+
+.input-estilizado, .select-estilizado {
+    padding: 0.6rem 0.9rem;
+    background-color: #0f172a;
+    border: 1px solid #475569;
+    border-radius: 6px;
+    color: #f8fafc;
+    font-size: 0.95rem;
+    display: block;
+    margin-top: 0.4rem;
+    min-width: 220px;
+}
+
+.btn-acao, .btn-favoritar, .btn-limpar {
+    padding: 0.6rem 1rem;
+    background-color: #0284c7;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.btn-acao:hover, .btn-favoritar:hover {
+    background-color: #0369a1;
+}
+
+.btn-favoritar {
+    margin-top: 0.8rem;
+    width: 100%;
+    font-size: 0.85rem;
+    background-color: #0f766e;
+}
+
+.btn-favoritar:hover {
+    background-color: #115e59;
+}
+
+.info-contador {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #94a3b8;
+}
+
+.badge {
+    background-color: #38bdf8;
+    color: #0f172a;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.selo-recomendado {
+    display: block;
+    margin: 0.5rem 0;
+    color: #facc15;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.sem-filmes {
+    color: #f87171;
+    font-size: 1.1rem;
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
+}
+
+.bloco-favoritos {
+    background-color: #1e293b;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #334155;
+}
+
+.lista-favoritos {
+    list-style-type: square;
+    margin: 1rem 0 1rem 1.8rem;
+    color: #38bdf8;
+}
+
+.fav-vazio {
+    list-style-type: none;
+    margin-left: -1.8rem;
+    color: #64748b;
+    font-style: italic;
+}
+
+.btn-limpar {
+    background-color: #b91c1c;
+}
+
+.btn-limpar:hover {
+    background-color: #991b1b;
+}
