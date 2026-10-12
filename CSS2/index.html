@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineTech - Catálogo de Filmes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- A. Cabeçalho (Header) e Menu de Navegação Âncora -->
+    <header class="hero">
+        <h1 class="logo">CineTech Filmes</h1>
+        <h2 class="subtitulo">A melhor curadoria de ficção científica, tecnologia e cinema clássico</h2>
+        <nav class="menu-nav">
+            <a href="#destaque">Destaque</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#tabela">Avaliações</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- B. Seção Destaque da Semana -->
+        <section id="destaque" class="secao-bloco">
+            <h2 class="titulo-secao">Destaque da Semana</h2>
+            <div class="card-destaque">
+                <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500" alt="Pôster Interestelar" class="poster-destaque">
+                <div class="destaque-info">
+                    <h3>Interestelar (2014)</h3>
+                    <p class="sinopse">
+                        Um grupo de exploradores assume a missão mais importante da história da humanidade: viajar para além da nossa galáxia para descobrir se o ser humano tem futuro entre as estrelas.
+                    </p>
+                    <h4>Gêneros:</h4>
+                    <ul class="lista-generos">
+                        <li>Ficção Científica</li>
+                        <li>Aventura</li>
+                        <li>Drama</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- C. Grade de Filmes (Catálogo) com Flexbox -->
+        <section id="catalogo" class="secao-bloco">
+            <h2 class="titulo-secao">Grade de Catálogo</h2>
+            <div class="grade-filmes">
+                
+                <div class="card-filme">
+                    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=300" alt="Matrix" class="poster-grade">
+                    <h4><a href="https://www.imdb.com/title/tt0133093/" target="_blank">The Matrix</a></h4>
+                    <p class="ano">1999</p>
+                    <p class="genero-card">Ficção Científica / Ação</p>
+                </div>
+
+                <div class="card-filme">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=300" alt="Blade Runner 2049" class="poster-grade">
+                    <h4><a href="https://www.imdb.com/title/tt1856101/" target="_blank">Blade Runner 2049</a></h4>
+                    <p class="ano">2017</p>
+                    <p class="genero-card">Cyberpunk / Mistério</p>
+                </div>
+
+                <div class="card-filme">
+                    <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=300" alt="Oppenheimer" class="poster-grade">
+                    <h4><a href="https://www.imdb.com/title/tt15398776/" target="_blank">Oppenheimer</a></h4>
+                    <p class="ano">2023</p>
+                    <p class="genero-card">Biografia / Drama</p>
+                </div>
+
+                <div class="card-filme">
+                    <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=300" alt="A Rede Social" class="poster-grade">
+                    <h4><a href="https://www.imdb.com/title/tt1285016/" target="_blank">A Rede Social</a></h4>
+                    <p class="ano">2010</p>
+                    <p class="genero-card">Drama / Tecnologia</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- D. Tabela de Lançamentos & Prêmios -->
+        <section id="tabela" class="secao-bloco">
+            <h2 class="titulo-secao">Tabela de Lançamentos e Crítica</h2>
+            <table class="tabela-filmes">
+                <thead>
+                    <tr>
+                        <th>Filme</th>
+                        <th>Ano</th>
+                        <th>Nota IMDB</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Interestelar</td>
+                        <td>2014</td>
+                        <td>8.7 / 10</td>
+                        <td>Aclamado</td>
+                    </tr>
+                    <tr>
+                        <td>The Matrix</td>
+                        <td>1999</td>
+                        <td>8.7 / 10</td>
+                        <td>Vencedor de 4 Oscars</td>
+                    </tr>
+                    <tr>
+                        <td>Blade Runner 2049</td>
+                        <td>2017</td>
+                        <td>8.0 / 10</td>
+                        <td>Vencedor de 2 Oscars</td>
+                    </tr>
+                    <tr>
+                        <td>Oppenheimer</td>
+                        <td>2023</td>
+                        <td>8.9 / 10</td>
+                        <td>Vencedor de 7 Oscars</td>
+                    </tr>
+                    <tr>
+                        <td>A Rede Social</td>
+                        <td>2010</td>
+                        <td>7.8 / 10</td>
+                        <td>Vencedor de 3 Oscars</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- F. Seção Sobre / Contato com float: right -->
+        <section id="sobre" class="secao-bloco">
+            <h2 class="titulo-secao">Sobre o CineTech</h2>
+            <div class="conteudo-sobre">
+                <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=180" alt="Projetor de Cinema" class="img-flutuante">
+                <p>
+                    O CineTech é uma plataforma dedicada a cinéfilos e entusiastas da tecnologia. Nossa curadoria seleciona obras cinematográficas marcantes que abordam ciência, inovação, inteligência artificial e narrativas complexas. Acompanhe nossas recomendações semanais e compartilhe sua opinião.
+                </p>
+                <div class="links-redes">
+                    <span>Acompanhe:</span>
+                    <a href="https://github.com/Eydersanx" target="_blank" class="link-social">GitHub</a>
+                    <a href="https://portal.uneb.br/" target="_blank" class="link-social">Portal UNEB</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+        <p>&copy; 2026 CineTech - Projeto Prático de CSS2 - UNEB</p>
+    </footer>
+
+</body>
+</html>
